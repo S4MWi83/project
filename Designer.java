@@ -86,14 +86,18 @@ public abstract class Designer {
 		panel.add(toiletButton);
 		panel.add(showerButton);	
 		panel.add(bathtubButton);
-		panel.add(sinkButton);
+		panel.add(sinkButton);	
 		
+		pics.setPreferredSize(new Dimension(799, 499));
 		comp.setPreferredSize(new Dimension(800, 500));
+		panel.setPreferredSize(new Dimension(780, 200));
 		
+		pics.setLayout(new FlowLayout());
+		comp.setLayout(new FlowLayout());
 		panel.setLayout(new FlowLayout());
-		panel.setPreferredSize(new Dimension(781, 200));
-		frame.add(comp);
-		frame.add(new PicturePane());
+		
+		comp.add(pics);
+		frame.add(comp);	
 		frame.add(panel);
 		frame.setLayout(new FlowLayout());
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
