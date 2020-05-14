@@ -15,20 +15,21 @@ import javax.swing.JLayeredPane;
 public class PicturePane extends JLayeredPane {
 	
 	public PicturePane() {
-        File[] images = new File("C:\\Users\\samue\\eclipse-workspace\\Project - aoop\\src\\pictures").listFiles(new FileFilter() {
+        File[] images = new File("/Users/rebook/eclipse-workspace/AOOP/src/minipictures").listFiles(new FileFilter() {
             @Override
             public boolean accept(File pathname) {
                 String name = pathname.getName().toLowerCase();
                 return name.endsWith(".png") || name.endsWith(".jpg");
             }
         });
-        
+
         int x = 0;
         int y = 0;
         for (File imgFile : images) {
 
             try {
                 BufferedImage img = ImageIO.read(imgFile);
+                
                 JLabel label = new JLabel(new ImageIcon(img));
                 label.setSize(label.getPreferredSize());
                 label.setLocation(x, y);
@@ -64,7 +65,10 @@ public class PicturePane extends JLayeredPane {
             Point location = component.getLocation();
             location.x += x;
             location.y += y;
+            
+            if(location.x > 3 && location.x < 655 && location.y > 0 && location.y < 340) {
             component.setLocation(location);
+            }
         }
 
     }
