@@ -1,6 +1,6 @@
 import java.io.File;
 
-public class Sofa implements Furniture{
+public class Wardrobe implements Furniture{
 
 	@Override
 	public File getPicture() {

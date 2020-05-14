@@ -8,5 +8,7 @@ public class Bed implements Furniture{
 		return picture;
 		
 	}
+	
 	private File picture = new File("\"C:/Users/samue/OneDrive/Bilder/Prog/chair.jpg");
+	
 }

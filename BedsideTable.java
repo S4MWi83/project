@@ -1,8 +1,10 @@
+import java.io.File;
 
 public class BedsideTable implements Furniture {
 
 	@Override
-	public void show() {
+	public File getPicture() {
+		return null;
 		// TODO Auto-generated method stub
 
 	}

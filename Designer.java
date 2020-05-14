@@ -8,15 +8,20 @@ import javax.swing.JButton;
 import javax.swing.JComponent;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JLayeredPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 public abstract class Designer {
 
-	public abstract JPanel createCenterComponent();
+	public abstract JPanel createBackComponent();
+	public abstract JLayeredPane createPicturePane();
+	
 	public abstract void saveButtonPressed();	
 	public abstract void loadButtonPressed();
-
+	
+	public abstract void bedButtonPressed();
+	
 	public Designer() {
 	
 		JButton saveButton 	= new JButton("Save design");
@@ -54,6 +59,16 @@ public abstract class Designer {
 				loadButtonPressed();
 			}
 		});
+		
+		bedButton.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				
+				bedButtonPressed();
+				
+			}
+		});
 	
 		panel.add(saveButton);
 		panel.add(loadButton);
@@ -78,6 +93,7 @@ public abstract class Designer {
 		panel.setLayout(new FlowLayout());
 		panel.setPreferredSize(new Dimension(781, 200));
 		frame.add(comp);
+		frame.add(new PicturePane());
 		frame.add(panel);
 		frame.setLayout(new FlowLayout());
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -86,7 +102,8 @@ public abstract class Designer {
 		
 	}
 	
-	private JComponent comp = createCenterComponent();
+	private JComponent comp = createBackComponent();
+	private JComponent pics = createPicturePane();
 	private JPanel panel	= new JPanel();
 	private JFrame frame 	= new JFrame("Room Sketcher");
 	private JTextField textField = new JTextField(20);

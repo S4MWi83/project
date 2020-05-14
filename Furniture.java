@@ -1,6 +1,7 @@
+import java.io.File;
 
 public interface Furniture {
 	
-	void show();
+	File getPicture();
 	
 }
