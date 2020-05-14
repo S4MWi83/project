@@ -25,13 +25,18 @@ public class PicturePane extends JLayeredPane {
 
         int x = 0;
         int y = 0;
+//        int width = 0;
+//        int height = 0;
         for (File imgFile : images) {
 
             try {
                 BufferedImage img = ImageIO.read(imgFile);
-                
                 JLabel label = new JLabel(new ImageIcon(img));
-                label.setSize(label.getPreferredSize());
+//                label.setSize(label.getPreferredSize());
+                label.setSize(img.getWidth(), img.getHeight());
+                System.out.println(img.getWidth() + " " + img.getHeight() + " " + imgFile);
+                System.out.println(label.getWidth() + " " + label.getHeight() + " " + imgFile);
+//                label.setPreferredSize(new Dimension(img.getWidth(), img.getHeight()));
                 label.setLocation(x, y);
                 MouseHandler mh  = new MouseHandler();
                 label.addMouseListener(mh);
@@ -66,7 +71,7 @@ public class PicturePane extends JLayeredPane {
             location.x += x;
             location.y += y;
             
-            if(location.x > 3 && location.x < 655 && location.y > 0 && location.y < 340) {
+            if(location.x > 3 && location.x < 778 - component.getWidth() && location.y > 0 && location.y < 473 - component.getHeight()) {
             component.setLocation(location);
             }
         }
