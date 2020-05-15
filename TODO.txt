@@ -1,0 +1,7 @@
+1. Villkor
+2. Spara och ladda
+3. Positionering av möbler
+4. Fixa nya bilerna i mappen
+5. Radera knapp
+6. Sätta fixerade möbler och villkoren till dessa
+7. (Design Pattern för knapparna)
