@@ -21,6 +21,13 @@ public abstract class Designer {
 	public abstract void loadButtonPressed();
 	
 	public abstract void bedButtonPressed();
+	public abstract void sofaButtonPressed();
+	public abstract void diningButtonPressed();
+	public abstract void chairButtonPressed();
+	public abstract void deskButtonPressed();
+	public abstract void wardrobeButtonPressed();
+	public abstract void bedsideTableButtonPressed();
+	
 	
 	public Designer() {
 	
@@ -28,7 +35,7 @@ public abstract class Designer {
 		JButton loadButton 	= new JButton("Load design");
 		
 		JButton bedButton = new JButton("Bed");
-		JButton tableButton = new JButton("Table");
+		JButton diningTableButton = new JButton("Dining table");
 		JButton sofaButton = new JButton("Sofa");
 		JButton refrigeratorButton = new JButton("Refrigerator");
 		JButton chairButton = new JButton("Chair");
@@ -69,11 +76,70 @@ public abstract class Designer {
 				
 			}
 		});
-	
+		
+		sofaButton.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				
+				sofaButtonPressed();
+				
+			}
+		});
+		
+		diningTableButton.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				
+				diningButtonPressed();
+				
+			}
+		});
+		chairButton.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				
+				chairButtonPressed();
+				
+			}
+		});
+		deskButton.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				
+				deskButtonPressed();
+				
+			}
+		});
+		wardrobeButton.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				
+				wardrobeButtonPressed();
+				
+			}
+		});
+		bedsideTableButton.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				
+				bedsideTableButtonPressed();
+				
+			}
+		});
+		
+		panel.add(saveButton);
+		panel.add(loadButton);
+		
 		panel.add(saveButton);
 		panel.add(loadButton);
 		panel.add(bedButton);
-		panel.add(tableButton);
+		panel.add(diningTableButton);
 		panel.add(sofaButton);	
 		panel.add(refrigeratorButton);
 		panel.add(chairButton);	
@@ -86,17 +152,17 @@ public abstract class Designer {
 		panel.add(toiletButton);
 		panel.add(showerButton);	
 		panel.add(bathtubButton);
-		panel.add(sinkButton);	
+		panel.add(sinkButton);
 		
-		pics.setPreferredSize(new Dimension(799, 499));
+		pane.setPreferredSize(new Dimension(795, 495));
 		comp.setPreferredSize(new Dimension(800, 500));
 		panel.setPreferredSize(new Dimension(780, 200));
 		
-		pics.setLayout(new FlowLayout());
+		pane.setLayout(new FlowLayout());
 		comp.setLayout(new FlowLayout());
 		panel.setLayout(new FlowLayout());
 		
-		comp.add(pics);
+		comp.add(pane);
 		frame.add(comp);	
 		frame.add(panel);
 		frame.setLayout(new FlowLayout());
@@ -107,7 +173,7 @@ public abstract class Designer {
 	}
 	
 	private JComponent comp = createBackComponent();
-	private JComponent pics = createPicturePane();
+	private JComponent pane = createPicturePane();
 	private JPanel panel	= new JPanel();
 	private JFrame frame 	= new JFrame("Room Sketcher");
 	private JTextField textField = new JTextField(20);
