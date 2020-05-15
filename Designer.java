@@ -162,13 +162,16 @@ public abstract class Designer {
 		panel.add(bathtubButton);
 		panel.add(sinkButton);
 		
-		pane.setPreferredSize(new Dimension(795, 495));
-		comp.setPreferredSize(new Dimension(800, 500));
+		pane.setPreferredSize(new Dimension(780, 480));
+		comp.setPreferredSize(new Dimension(780, 480));
 		panel.setPreferredSize(new Dimension(780, 200));
 		
 		pane.setLayout(new FlowLayout());
 		comp.setLayout(new FlowLayout());
 		panel.setLayout(new FlowLayout());
+		
+		Color brown = new Color(218,172,109);
+		comp.setBackground(brown);
 		
 		comp.add(pane);
 		frame.add(comp);	
