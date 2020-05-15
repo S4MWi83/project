@@ -4,7 +4,6 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.image.BufferedImage;
 import java.io.File;
-import java.io.FileFilter;
 import java.io.IOException;
 
 import javax.imageio.ImageIO;
@@ -12,6 +11,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JLayeredPane;
 
+@SuppressWarnings("serial")
 public class PicturePane extends JLayeredPane {
 	
 	public void addFurniture(File pic) {
@@ -30,14 +30,20 @@ public class PicturePane extends JLayeredPane {
 		        MouseHandler mh  = new MouseHandler();
 		        label.addMouseListener(mh);
 		        label.addMouseMotionListener(mh);
-		        this.add(label);
+		        label.revalidate();
+		        this.add(label);     
 		
         	}
         } catch (IOException exp) {
             exp.printStackTrace();
         }
         
+	}
+	
+	public void removeFurniture() {
+		this.removeAll();
 		this.revalidate();
+		this.repaint();
 	}
 	
 	
@@ -47,6 +53,13 @@ public class PicturePane extends JLayeredPane {
 
         @Override
         public void mousePressed(MouseEvent e) {
+            JLabel label = (JLabel) e.getComponent();
+            moveToFront(label);
+            offset = e.getPoint();
+        }
+        
+        @Override
+        public void mouseClicked(MouseEvent e) {
             JLabel label = (JLabel) e.getComponent();
             moveToFront(label);
             offset = e.getPoint();
