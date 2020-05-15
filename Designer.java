@@ -2,15 +2,12 @@ import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.MouseListener;
 
 import javax.swing.JButton;
 import javax.swing.JComponent;
 import javax.swing.JFrame;
-import javax.swing.JLabel;
 import javax.swing.JLayeredPane;
 import javax.swing.JPanel;
-import javax.swing.JTextField;
 
 public abstract class Designer {
 
@@ -19,6 +16,7 @@ public abstract class Designer {
 	
 	public abstract void saveButtonPressed();	
 	public abstract void loadButtonPressed();
+	public abstract void removeButtonPressed();
 	
 	public abstract void bedButtonPressed();
 	public abstract void sofaButtonPressed();
@@ -32,7 +30,8 @@ public abstract class Designer {
 	public Designer() {
 	
 		JButton saveButton 	= new JButton("Save design");
-		JButton loadButton 	= new JButton("Load design");
+		JButton loadButton 	= new JButton("Load designs");
+		JButton removeButton 	= new JButton("Remove furniture");
 		
 		JButton bedButton = new JButton("Bed");
 		JButton diningTableButton = new JButton("Dining table");
@@ -64,6 +63,14 @@ public abstract class Designer {
 			public void actionPerformed(ActionEvent e) {
 				
 				loadButtonPressed();
+			}
+		});
+		
+		removeButton.addActionListener(new ActionListener() {	
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				
+				removeButtonPressed();
 			}
 		});
 		
@@ -135,6 +142,7 @@ public abstract class Designer {
 		
 		panel.add(saveButton);
 		panel.add(loadButton);
+		panel.add(removeButton);
 		
 		panel.add(saveButton);
 		panel.add(loadButton);
@@ -172,11 +180,9 @@ public abstract class Designer {
 		
 	}
 	
-	private JComponent comp = createBackComponent();
-	private JComponent pane = createPicturePane();
 	private JPanel panel	= new JPanel();
 	private JFrame frame 	= new JFrame("Room Sketcher");
-	private JTextField textField = new JTextField(20);
-	private DesignProject[] dpa = new DesignProject[10];
+	private JComponent comp = createBackComponent();
+	private JComponent pane = createPicturePane();
 	
 }

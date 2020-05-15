@@ -1,5 +1,7 @@
 
 import java.io.File;
+import java.util.ArrayList;
+import java.util.Scanner;
 
 import javax.swing.JLayeredPane;
 import javax.swing.JPanel;
@@ -24,12 +26,33 @@ public class RoomSketcher extends Designer {
 	
 	@Override
 	public void saveButtonPressed() {
-		designs[count] = new DesignProject("project", picpane);
+		System.out.print("Enter name of your design: ");
+		@SuppressWarnings("resource")
+		Scanner sc = new Scanner(System.in);
+		String name = sc.nextLine();
+		PicturePane pp = picpane;
+		designs.add(new DesignProject(name, pp));
+		System.out.println("Continue...");
 	}
 	
 	@Override
 	public void loadButtonPressed() {
-		
+		int i = 1;
+		for(DesignProject dp : designs) {
+			System.out.println(Integer.toString(i) +  ". " + dp.getName());
+			i++;
+		}
+		System.out.print("Choose design: ");
+		@SuppressWarnings("resource")
+		Scanner sc = new Scanner(System.in);
+		int choice = sc.nextInt();
+		picpane = designs.get(choice-1).getPane();
+		picpane.revalidate();
+	}
+	
+	@Override
+	public void removeButtonPressed() {
+		picpane.removeFurniture();
 	}
 	
 	
@@ -85,8 +108,7 @@ public class RoomSketcher extends Designer {
 	private FurnitureFactory shoppingList = new FurnitureFactory();
 	private RoomComponent comp;
 	private PicturePane picpane;
-	private DesignProject[] designs = new DesignProject[25];
+	private ArrayList<DesignProject> designs = new ArrayList<DesignProject>();
 	private File pic = new File("");
-	private int count = 0;
 	
 }
