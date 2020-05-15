@@ -9,6 +9,6 @@ public class Bed implements Furniture{
 		
 	}
 	
-	private File picture = new File("\"C:/Users/samue/OneDrive/Bilder/Prog/chair.jpg");
+	private File picture = new File("C:\\Users\\samue\\eclipse-workspace\\Project - aoop\\src\\pictures\\bed_newsize.png");
 	
 }
