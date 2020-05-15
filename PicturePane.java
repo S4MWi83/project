@@ -14,43 +14,33 @@ import javax.swing.JLayeredPane;
 
 public class PicturePane extends JLayeredPane {
 	
-	public PicturePane() {
-        File[] images = new File("/Users/rebook/eclipse-workspace/AOOP/src/minipictures").listFiles(new FileFilter() {
-            @Override
-            public boolean accept(File pathname) {
-                String name = pathname.getName().toLowerCase();
-                return name.endsWith(".png") || name.endsWith(".jpg");
-            }
-        });
-
-        int x = 0;
+	public void addFurniture(File pic) {
+		
+		int x = 0;
         int y = 0;
-//        int width = 0;
-//        int height = 0;
-        for (File imgFile : images) {
 
-            try {
-                BufferedImage img = ImageIO.read(imgFile);
-                JLabel label = new JLabel(new ImageIcon(img));
-//                label.setSize(label.getPreferredSize());
-                label.setSize(img.getWidth(), img.getHeight());
-                System.out.println(img.getWidth() + " " + img.getHeight() + " " + imgFile);
-                System.out.println(label.getWidth() + " " + label.getHeight() + " " + imgFile);
-//                label.setPreferredSize(new Dimension(img.getWidth(), img.getHeight()));
-                label.setLocation(x, y);
-                MouseHandler mh  = new MouseHandler();
-                label.addMouseListener(mh);
-                label.addMouseMotionListener(mh);
-                add(label);
-                x += 20;
-                y += 20;
-            } catch (IOException exp) {
-                exp.printStackTrace();
-            }
-
+        try {
+        	if(pic != null)
+        	{
+        		
+		        BufferedImage img = ImageIO.read(pic);        
+		        JLabel label = new JLabel(new ImageIcon(img));
+		        label.setSize(label.getPreferredSize());
+		        label.setLocation(x, y);
+		        MouseHandler mh  = new MouseHandler();
+		        label.addMouseListener(mh);
+		        label.addMouseMotionListener(mh);
+		        this.add(label);
+		
+        	}
+        } catch (IOException exp) {
+            exp.printStackTrace();
         }
         
-    }
+		this.revalidate();
+	}
+	
+	
 	public class MouseHandler extends MouseAdapter {
 
         private Point offset;
