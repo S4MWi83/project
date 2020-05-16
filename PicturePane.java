@@ -47,6 +47,7 @@ public class PicturePane extends JLayeredPane {
 	}
 	
 	
+	
 	public class MouseHandler extends MouseAdapter {
 
         private Point offset;
