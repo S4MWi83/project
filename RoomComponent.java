@@ -1,9 +1,9 @@
 import java.awt.Color;
 import java.awt.Graphics;
-import java.io.File;
 import javax.swing.JPanel;
 
 
+@SuppressWarnings("serial")
 public class RoomComponent extends JPanel  {
 	
 	public void paintComponent(Graphics g) {
@@ -38,10 +38,6 @@ public class RoomComponent extends JPanel  {
 		g.drawLine(363, 243, 779, 243);
 
 		
-		
-	}
-	
-	public void addFurniture(File pic) {
 		
 	}
     

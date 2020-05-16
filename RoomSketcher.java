@@ -12,27 +12,25 @@ public class RoomSketcher extends Designer {
 	
 	@Override	
 	public JPanel createBackComponent() {
-		// create room
 		comp = new RoomComponent();
 		return comp;
 	}
 	
 	@Override
+	public JPanel createSaveLoadGUIComponent() {
+		saveGUI = new SaveLoadGUI();
+		return saveGUI;
+	}
+	
+	@Override
 	public JLayeredPane createPicturePane() {
-		//drag and drop images
 		picpane = new PicturePane();
 		return picpane;
 	}
 	
 	@Override
 	public void saveButtonPressed() {
-		System.out.print("Enter name of your design: ");
-		@SuppressWarnings("resource")
-		Scanner sc = new Scanner(System.in);
-		String name = sc.nextLine();
-		PicturePane pp = picpane;
-		designs.add(new DesignProject(name, pp));
-		System.out.println("Continue...");
+		saveGUI.openWindow();
 	}
 	
 	@Override
@@ -71,7 +69,7 @@ public class RoomSketcher extends Designer {
 	}
 	
 	@Override
-	public void diningButtonPressed() {
+	public void diningTableButtonPressed() {
 		Furniture f = shoppingList.getFurniture("diningtable");
 		pic = f.getPicture();
 		picpane.addFurniture(pic);
@@ -104,11 +102,48 @@ public class RoomSketcher extends Designer {
 		pic = f.getPicture();
 		picpane.addFurniture(pic);
 	}
+	
+	@Override
+	public void bathtubButtonPressed() {
+		Furniture f = shoppingList.getFurniture("bathtub");
+		pic = f.getPicture();
+		picpane.addFurniture(pic);
+	}
+
+	@Override
+	public void toiletButtonPressed() {
+		Furniture f = shoppingList.getFurniture("toilet");
+		pic = f.getPicture();
+		picpane.addFurniture(pic);
+	}
+
+	@Override
+	public void stoveButtonPressed() {
+		Furniture f = shoppingList.getFurniture("stove");
+		pic = f.getPicture();
+		picpane.addFurniture(pic);
+	}
+
+	@Override
+	public void coffeTableButtonPressed() {
+		Furniture f = shoppingList.getFurniture("coffeetable");
+		pic = f.getPicture();
+		picpane.addFurniture(pic);
+	}
+	
+	@Override
+	public void sinkButtonPressed() {
+		Furniture f = shoppingList.getFurniture("sink");
+		pic = f.getPicture();
+		picpane.addFurniture(pic);
+	}
 
 	private FurnitureFactory shoppingList = new FurnitureFactory();
 	private RoomComponent comp;
 	private PicturePane picpane;
+	private SaveLoadGUI saveGUI;
 	private ArrayList<DesignProject> designs = new ArrayList<DesignProject>();
 	private File pic = new File("");
+	
 	
 }

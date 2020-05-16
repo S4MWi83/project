@@ -1,7 +1,8 @@
 1. Villkor
 2. Spara och ladda
-3. Positionering av möbler
-4. Fixa nya bilerna i mappen
-5. Radera knapp
+3. Positionering av möbler när det läggs till nya - ok
+4. Fixa nya bilerna i mappen, och skapa möblerna för dessa
+5. Radera knapp - ok
 6. Sätta fixerade möbler och villkoren till dessa
-7. (Design Pattern för knapparna)
+7. Design Pattern för knapparna
+8. (Rotering av möblerna)
