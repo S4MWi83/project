@@ -1,12 +1,19 @@
 
 public class DesignProject {
 	
-	public DesignProject(String n) {
-		name = n;
+	public DesignProject(String name, PicturePane pane) {
+		this.name = name;
+		this.pane = pane;
+	}
+	
+	public String getName() {
+		return name;
+	}
+	public PicturePane getPane() {
+		return pane;
 	}
 	
 	private String name;
-	private RoomComponent rc;
-	private int cashStack;
-	private Furniture[] furnitures = new Furniture[25];
+	private PicturePane pane;
+	
 }
