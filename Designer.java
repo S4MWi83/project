@@ -13,17 +13,18 @@ import javax.swing.JPanel;
 public abstract class Designer {
 	
 	public abstract JPanel createBackComponent();
-	public abstract JPanel createSaveLoadGUIComponent();
+	public abstract JPanel createSaveGUIComponent();
+	public abstract JPanel createLoadGUIComponent();
 	public abstract JLayeredPane createPicturePane();
 	
 	public abstract void saveButtonPressed();	
-	public abstract void loadButtonPressed();
+	public abstract void loadButtonPressed();	
 	public abstract void removeButtonPressed();
 	
-	public abstract void bedButtonPressed();
+	public abstract void chairButtonPressed();
+	public abstract void bedButtonPressed();	
 	public abstract void sofaButtonPressed();
 	public abstract void diningTableButtonPressed();
-	public abstract void chairButtonPressed();
 	public abstract void deskButtonPressed();
 	public abstract void wardrobeButtonPressed();
 	public abstract void bedsideTableButtonPressed();
@@ -35,9 +36,12 @@ public abstract class Designer {
 	
 	public Designer() {
 		
+		JFrame frame 	= new JFrame("Room Sketcher");
+		
 		JButton saveButton 	= new JButton("Save design");
-		JButton loadButton 	= new JButton("Load designs");
+		JButton loadButton 	= new JButton("Load design");
 		JButton removeButton 	= new JButton("Remove furniture");
+		
 		JButton bedButton = new JButton("Bed");
 		JButton diningTableButton = new JButton("Dining table");
 		JButton sofaButton = new JButton("Sofa");
@@ -51,17 +55,21 @@ public abstract class Designer {
 		JButton bathtubButton = new JButton("Bathtub");
 		JButton sinkButton = new JButton("Sink");
 		
+		JPanel buttonPanel	= new JPanel();
+		
 		saveButton.addActionListener(new ActionListener() { 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				createSaveLoadGUIComponent();
+				createSaveGUIComponent();
 				saveButtonPressed();				
 			}
 		});
-		loadButton.addActionListener(new ActionListener() {	
+		loadButton.addActionListener(new ActionListener() { 
 			@Override
 			public void actionPerformed(ActionEvent e) {
+				createLoadGUIComponent();
 				loadButtonPressed();
+				
 			}
 		});
 		removeButton.addActionListener(new ActionListener() {	
@@ -70,12 +78,22 @@ public abstract class Designer {
 				removeButtonPressed();
 			}
 		});
+		
+		chairButton.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				chairButtonPressed();
+			}
+		});
+		
+		
 		bedButton.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				bedButtonPressed();
 			}
 		});
+		
 		sofaButton.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -86,12 +104,6 @@ public abstract class Designer {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				diningTableButtonPressed();
-			}
-		});
-		chairButton.addActionListener(new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				chairButtonPressed();
 			}
 		});
 		deskButton.addActionListener(new ActionListener() {
@@ -142,43 +154,40 @@ public abstract class Designer {
 				coffeTableButtonPressed();
 			}
 		});		
-		
-		panel.add(saveButton);
-		panel.add(loadButton);
-		panel.add(removeButton);
-		panel.add(saveButton);
-		panel.add(loadButton);
-		panel.add(bedButton);
-		panel.add(diningTableButton);
-		panel.add(sofaButton);	
-		panel.add(chairButton);	
-		panel.add(bedsideTableButton);
-		panel.add(wardrobeButton);
-		panel.add(stoveButton);
-		panel.add(deskButton);
-		panel.add(coffeTableButton);
-		panel.add(toiletButton);
-		panel.add(bathtubButton);
-		panel.add(sinkButton);
 
-		pane.setPreferredSize(new Dimension(780, 480));
+		
+		buttonPanel.add(saveButton);
+		buttonPanel.add(loadButton);
+		buttonPanel.add(removeButton);
+		
+		buttonPanel.add(bathtubButton);
+		buttonPanel.add(bedsideTableButton);	
+		buttonPanel.add(bedButton);
+		buttonPanel.add(coffeTableButton);
+		buttonPanel.add(chairButton);
+		buttonPanel.add(deskButton);
+		buttonPanel.add(diningTableButton);
+		buttonPanel.add(sinkButton);
+		buttonPanel.add(sofaButton);	
+		buttonPanel.add(stoveButton);
+		buttonPanel.add(toiletButton);
+		buttonPanel.add(wardrobeButton);
+		
+		JComponent comp = createBackComponent();
+		JComponent saveGUI = createPicturePane();
+		JComponent pane = createPicturePane();
+		
 		comp.setPreferredSize(new Dimension(780, 480));
-		panel.setPreferredSize(new Dimension(700, 70));
-
-		pane.setLayout(new FlowLayout());
-		comp.setLayout(new FlowLayout());
-		panel.setLayout(new FlowLayout());
+		comp.setLocation(0, 0);
+		comp.setBackground(new Color(220,170,110));			
+		pane.setPreferredSize(new Dimension(780, 480));	
+		buttonPanel.setPreferredSize(new Dimension(750, 70));
 		
-
-		Color brown = new Color(220,170,110);
-		
-		comp.setBackground(brown);
-
 		comp.add(pane);
 		
 		frame.add(comp);
+		frame.add(buttonPanel);
 		frame.add(saveGUI);
-		frame.add(panel);
 		frame.setLayout(new FlowLayout());
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setSize(1000, 650);
@@ -187,11 +196,5 @@ public abstract class Designer {
 		frame.setVisible(true);
 		
 	}
-	
-	private JPanel panel	= new JPanel();
-	private JFrame frame 	= new JFrame("Room Sketcher");
-	private JComponent comp = createBackComponent();
-	private JComponent saveGUI = createPicturePane();
-	private JComponent pane = createPicturePane();
 	
 }
