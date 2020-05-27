@@ -1,5 +1,10 @@
 import java.io.File;
 public class CoffeeTable implements Furniture {
+	
+	@Override
+	public Furniture getFurniture() {
+		return this;}
+	
 	@Override
 	public File getPicture() {
 		return picture;
