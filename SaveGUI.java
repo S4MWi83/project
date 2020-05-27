@@ -3,6 +3,7 @@ import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
 import java.io.FileOutputStream;
 import java.io.ObjectOutputStream;
 
@@ -29,7 +30,7 @@ public class SaveGUI extends JPanel {
 			
 			try {
 			 	String filepath = "C:\\Users\\samue\\eclipse-workspace\\Project - aoop\\src\\stored designs\\" + name.getText();
-		        FileOutputStream fileOut = new FileOutputStream(filepath);
+		        FileOutputStream fileOut = new FileOutputStream(new File(filepath));
 		        ObjectOutputStream objectOut = new ObjectOutputStream(fileOut);
 		        objectOut.writeObject(data);
 		        
