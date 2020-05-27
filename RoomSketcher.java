@@ -1,4 +1,6 @@
 
+import java.util.Iterator;
+
 import javax.swing.JLayeredPane;
 import javax.swing.JPanel;
 
@@ -46,7 +48,14 @@ public class RoomSketcher extends Designer {
 	@Override
 	public void loadButtonPressed() {
 		DataStucture data = loadGUI.openWindow();
-		System.out.print(data.getName());
+		picpane.removeFurniture();
+		@SuppressWarnings("rawtypes")
+		Iterator it = data.getList().iterator();
+		int index = 0;
+		while(it.hasNext()) {
+			picpane.add(data.getList().get(index));
+			index++;
+		}
 	}
 	
 	@Override
