@@ -1,8 +1,12 @@
-1. Villkor
-2. Spara och ladda
+1. Villkor - ok
+2. Spara och ladda - ok 
 3. Positionering av möbler när det läggs till nya - ok
-4. Fixa nya bilerna i mappen, och skapa möblerna för dessa
 5. Radera knapp - ok
-6. Sätta fixerade möbler och villkoren till dessa
-7. Design Pattern för knapparna
-8. (Rotering av möblerna)
+6. Cash/buy system - 
+7. Pre-/postconditions - 
+8. JUnit testing - 
+9. Kryssa popups - 
+
+övrigt 
+skriva rapport
+lab 2
