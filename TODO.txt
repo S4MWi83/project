@@ -5,7 +5,7 @@
 6. Shoppinglista (vad vi har shoppat alltså vad som finns i lägenheten ELLER vad vi ska shoppa?) - 
 7. Pre-/postconditions - 
 8. JUnit testing - 
-9. Kryssa popups - 
+9. Kryssa popups (minst prioritet, inget som är obligatoriskt) -
 
 övrigt 
 skriva rapport
