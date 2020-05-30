@@ -2,10 +2,12 @@
 2. Spara och ladda - ok 
 3. Positionering av möbler när det läggs till nya - ok
 5. Radera knapp - ok
-6. Shoppinglista (vad vi har shoppat alltså vad som finns i lägenheten ELLER vad vi ska shoppa?) - 
+6. Shoppinglista - 
 7. Pre-/postconditions - 
 8. JUnit testing - 
-9. Kryssa popups (minst prioritet, inget som är obligatoriskt) -
+Bonus
+9. Kryssa popups -
+10. Rotera dem
 
 övrigt 
 skriva rapport
