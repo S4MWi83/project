@@ -2,7 +2,7 @@
 2. Spara och ladda - ok 
 3. Positionering av möbler när det läggs till nya - ok
 5. Radera knapp - ok
-6. Cash/buy system - 
+6. Shoppinglista (vad vi har shoppat alltså vad som finns i lägenheten ELLER vad vi ska shoppa?) - 
 7. Pre-/postconditions - 
 8. JUnit testing - 
 9. Kryssa popups - 
