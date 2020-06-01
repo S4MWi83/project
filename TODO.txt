@@ -3,12 +3,13 @@
 3. Positionering av möbler när det läggs till nya - ok
 5. Radera knapp - ok
 6. Shoppinglista - 
-7. Pre-/postconditions - 
-8. JUnit testing - 
-Bonus
-9. Kryssa popups -
-10. Rotera  möbler -
+7. JUnit testing - 
+8. Pre-/postconditions - 
 
-övrigt 
-skriva rapport
-lab 2 (jag har ändrat min del som var fel. har du ändrat din? så kan vi skicka in lab 2)
+   Bonus
+9. Kryssa popups - 
+10.Rotera bilder - 
+
+   Övrigt
+1. Skriva rapport
+2. Lab 2
