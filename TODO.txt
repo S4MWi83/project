@@ -3,12 +3,12 @@
 3. Positionering av möbler när det läggs till nya - ok
 5. Radera knapp - ok
 6. Shoppinglista - 
-7. JUnit testing - 
-8. Pre-/postconditions - 
+7. Pre-/postconditions - 
 
    Bonus
-9. Kryssa popups - 
-10.Rotera bilder - 
+8. Kryssa popups - 
+9. Rotera bilder - 
+10.JUnit testing - 
 
    Övrigt
 1. Skriva rapport
