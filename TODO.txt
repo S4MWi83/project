@@ -2,7 +2,7 @@
 2. Spara och ladda - ok 
 3. Positionering av möbler när det läggs till nya - ok
 5. Radera knapp - ok
-6. Shoppinglista - 
+6. Shoppinglista - ok
 7. Pre-/postconditions - 
 
    Bonus
