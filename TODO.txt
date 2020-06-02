@@ -9,6 +9,7 @@
 8. Kryssa popups - ok
 9. Rotera bilder - 
 10.JUnit testing - 
+11.MenyBars - ok
 
    Övrigt
 1. Skriva rapport
