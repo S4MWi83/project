@@ -1,144 +1,171 @@
-
 import java.util.Iterator;
 
 import javax.swing.JLayeredPane;
 import javax.swing.JPanel;
 
-
 public class RoomSketcher extends Designer {
 	
-	public RoomSketcher() {
+	public RoomSketcher() {	
 		
 	}
-
 	
-	public PicturePane getPicpane() {
-		return picpane;
-	}
-	
+	/**
+	Returns background JPanel for its super class Designer
+	@return JComponent 
+	*/
 	@Override	
 	public JPanel createBackComponent() {
 		comp = new RoomComponent();
+		comp.createGrid();
 		return comp;
 	}
 	
-	@Override
-	public JPanel createSaveGUIComponent() {
-		saveGUI = new SaveGUI();
-		return saveGUI;
-	}
-	
-	@Override
-	public JPanel createLoadGUIComponent() {
-		loadGUI = new LoadGUI();
-		return loadGUI;
-	}
-	
+	/**
+	Returns a JLayeredPane to place JLabels on to its super class
+	@return JComponent 
+	*/
 	@Override
 	public JLayeredPane createPicturePane() {
 		picpane = new PicturePane();
 		return picpane;
 	}
 	
+	/**
+	Returns JPanel component to list furniture names and total price for its super class
+	@return JComponent 
+	*/
+	@Override
+	public JPanel createShoppingComponent() {
+		checkOut = new ShoppingList();
+		return checkOut;
+	}
+
 	@Override
 	public void saveButtonPressed() {
+		saveGUI = new SavePopUp();
 		saveGUI.openWindow(this);
 	}
 	
 	@Override
+	@SuppressWarnings("rawtypes")
 	public void loadButtonPressed() {
-		DataStucture data = loadGUI.openWindow();
+		loadGUI = new LoadWindow();
+		DataStucture data = loadGUI.fileChooser();
 		picpane.removeFurniture();
-		@SuppressWarnings("rawtypes")
-		Iterator it = data.getList().iterator();
-		int index = 0;
-		while(it.hasNext()) {
-			picpane.add(data.getList().get(index));
-			index++;
+		if(data != null) {
+			Iterator it = data.getLabelList().iterator();
+			Furniture temp = null;
+			int index = 0;
+			while(it.hasNext() && data.getLabelList().size() > index) {
+				picpane.add(data.getLabelList().get(index));
+				temp = data.getFurnitureList().get(index);
+				checkOut.addToList(temp.getName(), temp.getPrice());
+				index++;
+			}
 		}
 	}
 	
 	@Override
 	public void removeButtonPressed() {
 		picpane.removeFurniture();
+		checkOut.removeFromList();
 	}
 	
 	@Override
 	public void chairButtonPressed() {
 		Furniture f = shoppingList.getFurniture("chair");
-		picpane.addFurniture(f.getPicture());
+		picpane.addFurniture(f);
+		checkOut.addToList(f.getName(), f.getPrice());
 	}
 	
 	@Override
 	public void bedButtonPressed() {
 		Furniture f = shoppingList.getFurniture("bed");
-		picpane.addFurniture(f.getPicture());
+		picpane.addFurniture(f);
+		checkOut.addToList(f.getName(), f.getPrice());
 	}	
 	
 	@Override
 	public void sofaButtonPressed() {
 		Furniture f = shoppingList.getFurniture("sofa");
-		picpane.addFurniture(f.getPicture());
+		picpane.addFurniture(f);
+		checkOut.addToList(f.getName(), f.getPrice());
 	}
 	
 	@Override
 	public void diningTableButtonPressed() {
 		Furniture f = shoppingList.getFurniture("diningtable");
-		picpane.addFurniture(f.getPicture());
+		picpane.addFurniture(f);
+		checkOut.addToList(f.getName(), f.getPrice());
 	}
 	
 	@Override
 	public void deskButtonPressed() {
 		Furniture f = shoppingList.getFurniture("desk");
-		picpane.addFurniture(f.getPicture());
+		picpane.addFurniture(f);
+		checkOut.addToList(f.getName(), f.getPrice());
 	}
 	
 	@Override
 	public void bedsideTableButtonPressed() {
 		Furniture f = shoppingList.getFurniture("bedsidetable");
-		picpane.addFurniture(f.getPicture());
+		picpane.addFurniture(f);
+		checkOut.addToList(f.getName(), f.getPrice());
 	}
 	
 	@Override
 	public void wardrobeButtonPressed() {
 		Furniture f = shoppingList.getFurniture("wardrobe");
-		picpane.addFurniture(f.getPicture());
+		picpane.addFurniture(f);
+		checkOut.addToList(f.getName(), f.getPrice());
 	}
 	
 	@Override
 	public void bathtubButtonPressed() {
 		Furniture f = shoppingList.getFurniture("bathtub");
-		picpane.addFurniture(f.getPicture());
+		picpane.addFurniture(f);
+		checkOut.addToList(f.getName(), f.getPrice());
 	}
 
 	@Override
 	public void toiletButtonPressed() {
 		Furniture f = shoppingList.getFurniture("toilet");
-		picpane.addFurniture(f.getPicture());
+		picpane.addFurniture(f);
+		checkOut.addToList(f.getName(), f.getPrice());
 	}
 
 	@Override
 	public void stoveButtonPressed() {
 		Furniture f = shoppingList.getFurniture("stove");
-		picpane.addFurniture(f.getPicture());
+		picpane.addFurniture(f);
+		checkOut.addToList(f.getName(), f.getPrice());
 	}
 
 	@Override
 	public void coffeTableButtonPressed() {
 		Furniture f = shoppingList.getFurniture("coffeetable");
-		picpane.addFurniture(f.getPicture());
+		picpane.addFurniture(f);
+		checkOut.addToList(f.getName(), f.getPrice());
 	}
 	
 	@Override
 	public void sinkButtonPressed() {
 		Furniture f = shoppingList.getFurniture("sink");
-		picpane.addFurniture(f.getPicture());
+		picpane.addFurniture(f);
+		checkOut.addToList(f.getName(), f.getPrice());
 	}
+	
+	
+	public PicturePane getPicpane() {
+		return picpane;
+	}
+	
 	
 	private FurnitureFactory shoppingList = new FurnitureFactory();
 	private RoomComponent comp;
 	private PicturePane picpane;
-	private SaveGUI saveGUI;
-	private LoadGUI loadGUI;
+	private SavePopUp saveGUI;
+	private LoadWindow loadGUI;
+	private ShoppingList checkOut;
 	
 }
