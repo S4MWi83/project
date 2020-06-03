@@ -4,7 +4,6 @@ import java.awt.Point;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.image.BufferedImage;
-import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 
@@ -15,16 +14,27 @@ import javax.swing.JLayeredPane;
 
 @SuppressWarnings("serial")
 public class PicturePane extends JLayeredPane {
-	
-	public void addFurniture(File pic) {
+		
+	/**
+	Adds Furniture on JLabel then on JLayeredPane
+	@param check so furniture and furniture's picture is not null
+	@precondition furniture 		!= null
+	@precondition furniture.picture != null
+	*/
+	public void addFurniture(Furniture f) {
+		
+		assert f != null 				: "violated precondition furniture != NULL";
+		assert f.getPicture() != null 	: "violated precondition furniture.picture > 0";
+		
+		list.add(f);
 		
 		int x = 150;
 		int y = 250;
 		
         try {
-        	if(pic != null)
+        	if(f.getPicture() != null)
         	{
-		        BufferedImage img = ImageIO.read(pic);        
+		        BufferedImage img = ImageIO.read(f.getPicture());        
 		        JLabel label = new JLabel(new ImageIcon(img));
 		        label.setSize(label.getPreferredSize());
 		        label.setLocation(x, y);
@@ -45,6 +55,10 @@ public class PicturePane extends JLayeredPane {
 			ret.add(c);
 		}
 		return ret;
+	}
+	
+	public ArrayList<Furniture> getFurniture(){
+		return list;
 	}
 	
 	public void removeFurniture() {
@@ -140,14 +154,11 @@ public class PicturePane extends JLayeredPane {
         			location.y = 240;
         		}
         		component.setLocation(location);
-        	}
-        	
-        	
+        	}	
         }
-        
-        
-        Point location = null;
-        ArrayList<Furniture> list = new ArrayList<Furniture>();
-        
 	}
+	
+    Point location = null;
+    ArrayList<Furniture> list = new ArrayList<Furniture>();
+    
 }

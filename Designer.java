@@ -1,23 +1,27 @@
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
+import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.swing.BorderFactory;
 import javax.swing.JButton;
 import javax.swing.JComponent;
 import javax.swing.JFrame;
 import javax.swing.JLayeredPane;
+import javax.swing.JMenu;
+import javax.swing.JMenuBar;
+import javax.swing.JMenuItem;
 import javax.swing.JPanel;
 
 public abstract class Designer {
 	
 	public abstract JPanel createBackComponent();
-	public abstract JPanel createSaveGUIComponent();
-	public abstract JPanel createLoadGUIComponent();
+	public abstract JPanel createShoppingComponent();
 	public abstract JLayeredPane createPicturePane();
 	
-	public abstract void saveButtonPressed();	
+	public abstract void saveButtonPressed();
 	public abstract void loadButtonPressed();	
 	public abstract void removeButtonPressed();
 	
@@ -36,165 +40,174 @@ public abstract class Designer {
 	
 	public Designer() {
 		
-		JFrame frame 	= new JFrame("Room Sketcher");
-		
-		JButton saveButton 	= new JButton("Save design");
-		JButton loadButton 	= new JButton("Load design");
-		JButton removeButton 	= new JButton("Remove furniture");
-		
-		JButton bedButton = new JButton("Bed");
-		JButton diningTableButton = new JButton("Dining table");
-		JButton sofaButton = new JButton("Sofa");
-		JButton chairButton = new JButton("Chair");
-		JButton bedsideTableButton = new JButton("Bedside table");
-		JButton wardrobeButton = new JButton("Wardrobe");
-		JButton stoveButton = new JButton("Stove");
-		JButton deskButton = new JButton("Desk");
-		JButton coffeTableButton = new JButton("Coffe table");
-		JButton toiletButton = new JButton("Toilet");
-		JButton bathtubButton = new JButton("Bathtub");
-		JButton sinkButton = new JButton("Sink");
-		
+		JFrame frame 		= new JFrame("Room Sketcher");
 		JPanel buttonPanel	= new JPanel();
+
+		JMenuBar menuBar 	= new JMenuBar();
+	    JMenu menu1    	 	= new JMenu("File");
+	    JMenu menu2    	 	= new JMenu("Edit");
+	        
+		JMenuItem open 		= new JMenuItem("Open");
+	    JMenuItem save 		= new JMenuItem("Save");
+	    
+	    JMenuItem remove = new JMenuItem("Remove");
 		
-		saveButton.addActionListener(new ActionListener() { 
+		JButton buttonOne 		= new JButton("Bed");
+		JButton buttonTwo 		= new JButton("Dining table");
+		JButton buttonThree 	= new JButton("Sofa");
+		JButton buttonFour 		= new JButton("Chair");
+		JButton buttonFive 		= new JButton("Bedside table");
+		JButton buttonSix 		= new JButton("Wardrobe");
+		JButton buttonSeven 	= new JButton("Stove");
+		JButton buttonEight 	= new JButton("Desk");
+		JButton buttonNine 		= new JButton("Coffe table");
+		JButton buttonTen 		= new JButton("Toilet");
+		JButton buttonEleven 	= new JButton("Bathtub");
+		JButton buttonTwelve 	= new JButton("Sink");
+
+		
+		save.addActionListener(new ActionListener() { 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				createSaveGUIComponent();
 				saveButtonPressed();				
 			}
 		});
-		loadButton.addActionListener(new ActionListener() { 
+		open.addActionListener(new ActionListener() { 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				createLoadGUIComponent();
 				loadButtonPressed();
 				
 			}
 		});
-		removeButton.addActionListener(new ActionListener() {	
+		remove.addActionListener(new ActionListener() {	
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				removeButtonPressed();
 			}
 		});
 		
-		chairButton.addActionListener(new ActionListener() {
+		
+		buttonFour.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				chairButtonPressed();
 			}
 		});
-		
-		
-		bedButton.addActionListener(new ActionListener() {
+		buttonOne.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				bedButtonPressed();
 			}
 		});
-		
-		sofaButton.addActionListener(new ActionListener() {
+		buttonThree.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				sofaButtonPressed();
 			}
 		});
-		diningTableButton.addActionListener(new ActionListener() {
+		buttonTwo.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				diningTableButtonPressed();
 			}
 		});
-		deskButton.addActionListener(new ActionListener() {
+		buttonEight.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				deskButtonPressed();
 			}
 		});
-		wardrobeButton.addActionListener(new ActionListener() {
+		buttonSix.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				wardrobeButtonPressed();
 			}
 		});
-		bedsideTableButton.addActionListener(new ActionListener() {
+		buttonFive.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				bedsideTableButtonPressed();
 			}
 		});
-		sinkButton.addActionListener(new ActionListener() {
+		buttonTwelve.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				sinkButtonPressed();
 			}
 		});
-		stoveButton.addActionListener(new ActionListener() {
+		buttonSeven.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				stoveButtonPressed();
 			}
 		});
-		toiletButton.addActionListener(new ActionListener() {
+		buttonTen.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				toiletButtonPressed();
 			}
 		});		
-		bathtubButton.addActionListener(new ActionListener() {
+		buttonEleven.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				bathtubButtonPressed();
 			}
 		});		
-		coffeTableButton.addActionListener(new ActionListener() {
+		buttonNine.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				coffeTableButtonPressed();
 			}
 		});		
-
 		
-		buttonPanel.add(saveButton);
-		buttonPanel.add(loadButton);
-		buttonPanel.add(removeButton);
+		JComponent comp 	= createBackComponent();
+		JComponent pane 	= createPicturePane();
+		JComponent checkOut	= createShoppingComponent();
 		
-		buttonPanel.add(bathtubButton);
-		buttonPanel.add(bedsideTableButton);	
-		buttonPanel.add(bedButton);
-		buttonPanel.add(coffeTableButton);
-		buttonPanel.add(chairButton);
-		buttonPanel.add(deskButton);
-		buttonPanel.add(diningTableButton);
-		buttonPanel.add(sinkButton);
-		buttonPanel.add(sofaButton);	
-		buttonPanel.add(stoveButton);
-		buttonPanel.add(toiletButton);
-		buttonPanel.add(wardrobeButton);
+		checkOut.setBorder(BorderFactory.createLineBorder(Color.black));
+		checkOut.setPreferredSize(new Dimension(200, 480));	
+		checkOut.setBackground(Color.gray);
 		
-		JComponent comp = createBackComponent();
-		JComponent saveGUI = createPicturePane();
-		JComponent pane = createPicturePane();
-		
-		comp.setPreferredSize(new Dimension(780, 480));
-		comp.setLocation(0, 0);
-		comp.setBackground(new Color(220,170,110));			
 		pane.setPreferredSize(new Dimension(780, 480));	
-		buttonPanel.setPreferredSize(new Dimension(750, 70));
-		
+		comp.setPreferredSize(new Dimension(780, 480));
+		comp.setBorder(BorderFactory.createLineBorder(Color.black));
+		comp.setBackground(Color.LIGHT_GRAY);
 		comp.add(pane);
 		
+		menu1.setBorder(BorderFactory.createLineBorder(Color.LIGHT_GRAY));
+		menu2.setBorder(BorderFactory.createLineBorder(Color.LIGHT_GRAY));
+		menu1.add(save);
+        menu1.add(open);
+        menu2.add(remove);
+        
+        menuBar.add(menu1);
+        menuBar.add(menu2);
+        
+		buttonPanel.add(buttonEleven);
+		buttonPanel.add(buttonFive);	
+		buttonPanel.add(buttonOne);
+		buttonPanel.add(buttonNine);
+		buttonPanel.add(buttonFour);
+		buttonPanel.add(buttonEight);
+		buttonPanel.add(buttonTwo);
+		buttonPanel.add(buttonTwelve);
+		buttonPanel.add(buttonThree);	
+		buttonPanel.add(buttonSeven);
+		buttonPanel.add(buttonTen);
+		buttonPanel.add(buttonSix);
+		buttonPanel.setLayout(new GridLayout(2, 6));
+		
 		frame.add(comp);
+		frame.add(checkOut);
 		frame.add(buttonPanel);
-		frame.add(saveGUI);
+		frame.setJMenuBar(menuBar);
+		
+		frame.setSize(1050, 610);
+		frame.setLocation(125, 35);
 		frame.setLayout(new FlowLayout());
+		frame.getContentPane().setBackground(Color.white);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.setSize(1000, 650);
-		frame.setLocation(130, 10);
-		frame.getContentPane().setBackground(Color.LIGHT_GRAY);
 		frame.setVisible(true);
 		
 	}
-	
 }

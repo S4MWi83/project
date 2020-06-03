@@ -6,6 +6,10 @@ import javax.swing.JPanel;
 @SuppressWarnings("serial")
 public class RoomComponent extends JPanel  {
 	
+	public void createGrid() {
+		//could potentially use GridLayout to draw room instead
+	}
+	
 	public void paintComponent(Graphics g) {
 		super.paintComponent(g);
 	
