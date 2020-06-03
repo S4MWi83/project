@@ -17,12 +17,12 @@ public class ShoppingList extends JPanel{
 	Adds an Item to the list.
 	@param check so string is not null and price > 0
 	@precondition name != null
-	@precondition price > 0.00
+	@precondition price >= 0.00
 	*/
 	public void addToList(String name, double price) {
 		
 		assert name != null : "violated precondition name != NULL";
-		assert price > 0.00 : "violated precondition price > 0.00";
+		assert price >= 0.00 : "violated precondition price >= 0.00";
 		
 		Item thing = new Item();
   
